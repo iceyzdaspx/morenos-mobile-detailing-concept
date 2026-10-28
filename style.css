@@ -39,6 +39,16 @@ section{padding:clamp(3.5rem,8vw,6rem) 0}
 .nav nav a:hover{color:var(--red)}
 .nav .btn{display:none;min-height:44px;padding:.4rem 1.1rem}
 
+.burger{display:grid;place-content:center;gap:6px;width:48px;height:48px;margin-right:-.6rem;background:none;border:0;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.burger span{display:block;width:26px;height:2px;background:var(--ink);transition:transform .25s}
+.burger[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
+.burger[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+@media(max-width:759px){
+  .nav nav.open{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;padding:.25rem 1.25rem 1rem;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(0,0,0,.12)}
+  .nav nav.open a{padding:1rem 0;font:700 1.5rem var(--f-d);border-bottom:1px solid var(--line)}
+  .nav nav.open a:last-child{border-bottom:0}
+}
+
 /* hero */
 .hero{padding:clamp(2.5rem,6vw,4.5rem) 0 0}
 .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.75rem 0 1rem}
@@ -85,7 +95,7 @@ footer strong{color:var(--ink)}
 @media(min-width:760px){
   body{padding-bottom:0}
   .dock{display:none}
-  .nav nav{display:flex}.nav .btn{display:inline-flex}
+  .nav nav{display:flex}.nav .btn{display:inline-flex}.burger{display:none}
   .hero-img{aspect-ratio:2.47/1;object-position:50% 50%}
   .grid{grid-template-columns:1.1fr 1fr}
   .split{grid-template-columns:1fr 1fr;align-items:start}
